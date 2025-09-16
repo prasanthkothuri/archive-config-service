@@ -2,10 +2,15 @@
 
 Minimal FastAPI + SQLite service for connections, warehouses, policies, sources, and rules.
 
+By default the service uses a local SQLite file (`app.db`). Set `DATABASE_URL` to a PostgreSQL
+connection string (e.g. `postgresql+psycopg://…`) to run against Postgres instead.
+
 ## Quickstart
 ```bash
 python3 -m venv .venv && . .venv/bin/activate
 pip install -r requirements.txt
+# optional: point to a PostgreSQL instance
+# export DATABASE_URL=postgresql+psycopg://user:pass@localhost:5432/archive_config
 uvicorn app.main:app --reload
 ```
 Open docs: http://127.0.0.1:8000/docs
